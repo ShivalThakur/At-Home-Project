@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\At-Home-Project\AtHomeProject.csproj" />
+    <ProjectReference Include="..\AtHomeProject\AtHomeProject.csproj" />
   </ItemGroup>
 
 </Project>
