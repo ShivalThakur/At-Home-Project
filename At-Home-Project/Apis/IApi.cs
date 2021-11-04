@@ -11,6 +11,6 @@ namespace AtHomeProject.Apis
         public string Url { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
-        public Task<decimal> GetOffer(OfferModel offerModel);
+        public Task<decimal> GetOffer(QueryModel queryModel);
     }
 }

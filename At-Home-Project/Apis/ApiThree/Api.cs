@@ -13,21 +13,21 @@ namespace AtHomeProject.Apis.ApiThree
 
 
 
-        public async Task<decimal> GetOffer(OfferModel offerModel)
+        public async Task<decimal> GetOffer(QueryModel queryModel)
         {
             var apiCalls = new XmlApiCalls();
-            var requestModel = Mapper(offerModel);
+            var requestModel = Mapper(queryModel);
             var response = await apiCalls.PostAsync<RequestModel, ResponseModel>(Url, requestModel).ConfigureAwait(false);
             return response.Quote;
         }
 
-        private RequestModel Mapper(OfferModel offerModel)
+        private RequestModel Mapper(QueryModel queryModel)
         {
             var requestModel = new RequestModel()
             {
-                Source = offerModel.Source,
-                Destination = offerModel.Destination,
-                Packages = offerModel.Packages
+                Source = queryModel.Source,
+                Destination = queryModel.Destination,
+                Packages = queryModel.Packages
             };
             return requestModel;
         }

@@ -14,21 +14,21 @@ namespace AtHomeProject.Apis.ApiTwo
 
 
 
-        public async Task<decimal> GetOffer(OfferModel offerModel)
+        public async Task<decimal> GetOffer(QueryModel queryModel)
         {
             var apiCalls = new JsonApiCalls();
-            var requestModel = Mapper(offerModel);
+            var requestModel = Mapper(queryModel);
             var response = await apiCalls.PostAsync<RequestModel, ResponseModel>(Url, requestModel).ConfigureAwait(false);
             return response.Amount;
         }
 
-        private RequestModel Mapper(OfferModel offerModel)
+        private RequestModel Mapper(QueryModel queryModel)
         {
             var requestModel = new RequestModel()
             {
-                Consignee = offerModel.Source,
-                Consignor = offerModel.Destination,
-                Cartons = offerModel.Packages
+                Consignee = queryModel.Source,
+                Consignor = queryModel.Destination,
+                Cartons = queryModel.Packages
             };
             return requestModel;
         }

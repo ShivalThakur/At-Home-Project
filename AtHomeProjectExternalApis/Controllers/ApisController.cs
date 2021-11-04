@@ -19,13 +19,13 @@ namespace AtHomeProjectExternalApis.Controllers
 
 
         [HttpPost("apione")]
-        public IActionResult GetOfferOne(ApiOne.RequestModel offerModel)
+        public IActionResult GetOfferOne(ApiOne.RequestModel queryModel)
         {
             var response = new ApiOne.ResponseModel()  { Total=1549 };
             return Ok(response);
         }
         [HttpPost("apitwo")]
-        public IActionResult GetOfferTwo(ApiTwo.RequestModel offerModel)
+        public IActionResult GetOfferTwo(ApiTwo.RequestModel queryModel)
         {
             var response = new ApiTwo.ResponseModel() { Amount = 1499 };
             return Ok(response);

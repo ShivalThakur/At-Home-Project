@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AtHomeProject.Common
 {
-    public class OfferModel
+    public class QueryModel
     {
         public string Source { get; set; }
         public string Destination { get; set; }

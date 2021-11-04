@@ -12,7 +12,7 @@ namespace AtHomeProject.DoWork
 {
     public class ProcessWork
     {
-        public async Task<decimal> GetBestDeal(OfferModel offerModel)
+        public async Task<decimal> GetBestDeal(QueryModel queryModel)
         {
             var deals = new List<decimal>();
             var apis = new List<IApi>()
@@ -23,7 +23,7 @@ namespace AtHomeProject.DoWork
             };
             foreach (var api in apis)
             {
-                var deal = await api.GetOffer(offerModel).ConfigureAwait(false);
+                var deal = await api.GetOffer(queryModel).ConfigureAwait(false);
                 deals.Add(deal);
             }
             return deals.OrderBy(x => x).First();

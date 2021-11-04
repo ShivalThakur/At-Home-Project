@@ -18,21 +18,21 @@ namespace AtHomeProject.Apis.ApiOne
 
 
 
-        public async Task<decimal> GetOffer(OfferModel offerModel)
+        public async Task<decimal> GetOffer(QueryModel queryModel)
         {
             var apiCalls = new JsonApiCalls();
-            var requestModel = Mapper(offerModel);
+            var requestModel = Mapper(queryModel);
             var response = await apiCalls.PostAsync<RequestModel, ResponseModel>(Url, requestModel).ConfigureAwait(false);
             return response.Total;
         }
 
-        private RequestModel Mapper(OfferModel offerModel)
+        private RequestModel Mapper(QueryModel queryModel)
         {
             var requestModel = new RequestModel()
             {
-                ContactAddress = offerModel.Source,
-                WarehouseAddress = offerModel.Destination,
-                Dimensions = offerModel.Packages
+                ContactAddress = queryModel.Source,
+                WarehouseAddress = queryModel.Destination,
+                Dimensions = queryModel.Packages
             };
             return requestModel;
         }
